@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.schemas.BasicSchema;
+import hexlet.code.schemas.BaseSchema;
 import hexlet.code.schemas.MapSchema;
 import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
@@ -54,9 +54,9 @@ public class ValidatorTest {
         assertFalse(mapSchema.required().isValid(null));
         assertTrue(mapSchema.isValid(new HashMap<>()));
         assertTrue(mapSchema.isValid(data));
-        assertFalse(mapSchema.sizeOf(2).isValid(data));
+        assertFalse(mapSchema.sizeof(2).isValid(data));
         data.put("key2", "value2");
-        assertTrue(mapSchema.sizeOf(2).isValid(data));
+        assertTrue(mapSchema.sizeof(2).isValid(data));
 
     }
 
@@ -66,7 +66,7 @@ public class ValidatorTest {
 
         MapSchema schema = validator.map();
 
-        Map<String, BasicSchema> schemas = new HashMap<>();
+        Map<String, BaseSchema> schemas = new HashMap<>();
         schemas.put("name", validator.string().required());
         schemas.put("age", validator.number().positive());
         schema.shape(schemas);

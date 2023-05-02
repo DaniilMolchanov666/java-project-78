@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class StringSchema extends BasicSchema {
+public class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         Predicate<Object> p = (s) -> !Objects.equals(s, "") && !Objects.equals(s, null)
