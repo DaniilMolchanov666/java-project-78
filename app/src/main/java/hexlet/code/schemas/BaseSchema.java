@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema {
+public final class BaseSchema {
 
     private final ArrayList<Predicate<Object>> checkList = new ArrayList<>();
 
