@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class NumberSchema extends BasicSchema{
+public class NumberSchema extends BasicSchema {
 
     public NumberSchema required() {
         Predicate<Object> p = (s) -> !Objects.equals(s, null) && s.getClass() == Integer.class;

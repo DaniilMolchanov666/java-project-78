@@ -6,11 +6,10 @@ import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidatorTest {
     private final Validator validator = new Validator();
@@ -38,7 +37,8 @@ public class ValidatorTest {
         assertTrue(numberSchema.isValid("3"));
         assertFalse(numberSchema.required().isValid("234"));
         assertTrue(numberSchema.positive().isValid(3));
-        assertFalse(numberSchema.range(0,3).isValid(100));
+        assertFalse(numberSchema.range(0, 3).isValid(100));
+
     }
 
     @Test
@@ -63,8 +63,6 @@ public class ValidatorTest {
     @Test
     @DisplayName("Map Shape Schema work test")
     public void mapShapeSchemaTest() {
-
-        Validator validator = new Validator();
 
         MapSchema schema = validator.map();
 

@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class MapSchema extends BasicSchema{
+public class MapSchema extends BasicSchema {
 
     public MapSchema required() {
         Predicate<Object> p = (s) -> !Objects.equals(s, null) && s instanceof Map;
@@ -13,11 +13,11 @@ public class MapSchema extends BasicSchema{
     }
 
     public MapSchema sizeOf(int size) {
-        Predicate<Object> p = (s) -> s instanceof Map  && ((Map<?, ?>)s).size() == size;
+        Predicate<Object> p = (s) -> s instanceof Map  && ((Map<?, ?>) s).size() == size;
         addPredicateInList(p);
         return this;
     }
-    
+
     public MapSchema shape(Map<String, BasicSchema> map) {
 
         Predicate<Object> p = (s) -> (s instanceof Map) && map.entrySet()

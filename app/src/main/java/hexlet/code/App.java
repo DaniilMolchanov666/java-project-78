@@ -1,13 +1,5 @@
 package hexlet.code;
 
-
-import hexlet.code.schemas.*;
-
-import hexlet.code.schemas.StringSchema;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class App {
     public static void main(String[] args) {
 //        Validator v = new Validator();
@@ -58,34 +50,34 @@ public class App {
 //        System.out.println(data.put("key2", "value2"));
 //        System.out.println(schemaMap.isValid(data)); // true
 
-        Validator v2 = new Validator();
-
-        MapSchema s2 = v2.map();
-
-
-        Map<String, BasicSchema> schemas = new HashMap<>();
-        schemas.put("name", v2.string().required());
-        schemas.put("age", v2.number().positive());
-        System.out.println(s2.shape(schemas));
-
-        Map<String, Object> human1 = new HashMap<>();
-        human1.put("name", "Kolya");
-        human1.put("age", 100);
-        System.out.println(s2.isValid(human1)); // true
-
-        Map<String, Object> human2 = new HashMap<>();
-        human2.put("name", "a");
-        human2.put("age", null);
-        System.out.println(s2.isValid(human2)); //
-
-        Map<String, Object> human3 = new HashMap<>();
-        human3.put("name", "");
-        human3.put("age", null);
-        System.out.println(s2.isValid(human3)); // false
-
-        Map<String, Object> human4 = new HashMap<>();
-        human4.put("name", "Valya");
-        human4.put("age", -5);
-        System.out.println(s2.isValid(human4));
+//        Validator v2 = new Validator();
+//
+//        MapSchema s2 = v2.map();
+//
+//
+//        Map<String, BasicSchema> schemas = new HashMap<>();
+//        schemas.put("name", v2.string().required());
+//        schemas.put("age", v2.number().positive());
+//        System.out.println(s2.shape(schemas));
+//
+//        Map<String, Object> human1 = new HashMap<>();
+//        human1.put("name", "Kolya");
+//        human1.put("age", 100);
+//        System.out.println(s2.isValid(human1)); // true
+//
+//        Map<String, Object> human2 = new HashMap<>();
+//        human2.put("name", "a");
+//        human2.put("age", null);
+//        System.out.println(s2.isValid(human2)); //
+//
+//        Map<String, Object> human3 = new HashMap<>();
+//        human3.put("name", "");
+//        human3.put("age", null);
+//        System.out.println(s2.isValid(human3)); // false
+//
+//        Map<String, Object> human4 = new HashMap<>();
+//        human4.put("name", "Valya");
+//        human4.put("age", -5);
+//        System.out.println(s2.isValid(human4));
     }
 }
