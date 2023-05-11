@@ -9,12 +9,12 @@ public abstract class BaseSchema {
 
     private Object stringForTest;
 
-    public boolean isValid(Object o) {
+    public final boolean isValid(Object o) {
         this.stringForTest = o;
         return checkList.stream().allMatch(value -> value.test(stringForTest));
     }
 
-    public void addPredicateInList(Predicate<Object> p) {
+    public final void addPredicateInList(Predicate<Object> p) {
         checkList.add(p);
     }
 }
