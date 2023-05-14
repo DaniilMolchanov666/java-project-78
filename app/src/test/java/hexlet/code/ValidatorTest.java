@@ -20,6 +20,7 @@ public class ValidatorTest {
 
         StringSchema stringSchema = validator.string();
 
+        assertTrue(stringSchema.isValid(""));
         assertTrue(stringSchema.isValid(null));
         assertTrue(stringSchema.isValid(3));
         assertFalse(stringSchema.required().isValid(""));
@@ -35,6 +36,7 @@ public class ValidatorTest {
 
         assertTrue(numberSchema.isValid(null));
         assertTrue(numberSchema.isValid("3"));
+        assertFalse(numberSchema.required().isValid(null));
         assertFalse(numberSchema.required().isValid("234"));
         assertTrue(numberSchema.positive().isValid(3));
         assertFalse(numberSchema.range(0, 3).isValid(100));

@@ -7,11 +7,8 @@ public abstract class BaseSchema {
 
     private final ArrayList<Predicate<Object>> checkList = new ArrayList<>();
 
-    private Object stringForTest;
-
     public final boolean isValid(Object o) {
-        this.stringForTest = o;
-        return checkList.stream().allMatch(value -> value.test(stringForTest));
+        return checkList.stream().allMatch(value -> value.test(o));
     }
 
     public final void addPredicateInList(Predicate<Object> p) {
