@@ -20,7 +20,7 @@ public abstract class BaseSchema {
         checkList.put(name, p);
     }
 
-    public String getRequiredCheckTitle() {
+    public final String getRequiredCheckTitle() {
         return "required";
     }
 }
