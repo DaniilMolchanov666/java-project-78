@@ -24,6 +24,7 @@ public class ValidatorTest {
         assertTrue(stringSchema.isValid(null));
         assertTrue(stringSchema.isValid(3));
         assertFalse(stringSchema.required().isValid(""));
+        assertFalse(stringSchema.isValid(null));
         assertTrue(stringSchema.contains("abc").isValid("abchuddw"));
         assertFalse(stringSchema.minLength(2).isValid("qw"));
     }
