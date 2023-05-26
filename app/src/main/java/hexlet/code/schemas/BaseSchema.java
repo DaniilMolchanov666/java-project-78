@@ -6,18 +6,16 @@ import java.util.function.Predicate;
 
 public abstract class BaseSchema {
 
-    private final Map<String, Predicate<Object>> checkList = new LinkedHashMap<>();
+    private final Map<String, Predicate<Object>> predicates = new LinkedHashMap<>();
 
     public final boolean isValid(Object o) {
-        if (o == null && checkList.containsKey("required")) {
-            return false;
-        }
-        return checkList.values().stream()
+        return o == null ? !predicates.containsKey("required") : predicates.values()
+                .stream()
                 .allMatch(value -> value.test(o));
     }
 
-    public final void addPredicateInList(String name, Predicate<Object> p) {
-        checkList.put(name, p);
+    public final void addPredicate(String name, Predicate<Object> p) {
+        predicates.put(name, p);
     }
 
     public final String getRequiredCheckTitle() {

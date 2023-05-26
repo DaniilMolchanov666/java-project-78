@@ -7,19 +7,19 @@ public final class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         Predicate<Object> p = (s) -> !Objects.equals(s, "") && s.getClass() == String.class;
-        super.addPredicateInList(super.getRequiredCheckTitle(), p);
+        super.addPredicate(super.getRequiredCheckTitle(), p);
         return this;
     }
 
     public StringSchema minLength(int number) {
-        Predicate<Object> p = (string) -> string.getClass() == String.class && ((String) string).length() >= number;
-        super.addPredicateInList("minLength", p);
+        Predicate<Object> p = (string) -> ((String) string).length() >= number;
+        super.addPredicate("minLength", p);
         return this;
     }
 
     public StringSchema contains(String string) {
-        Predicate<Object> p = (s) -> s.getClass() == String.class && ((String) s).contains(string);
-        super.addPredicateInList("contains", p);
+        Predicate<Object> p = (s) -> ((String) s).contains(string);
+        super.addPredicate("contains", p);
         return this;
     }
 }
