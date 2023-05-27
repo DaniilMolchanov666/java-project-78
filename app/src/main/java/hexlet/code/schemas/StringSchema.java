@@ -5,9 +5,13 @@ import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema {
 
-    public StringSchema required() {
-        Predicate<Object> p = (s) -> !Objects.equals(s, "") && s.getClass() == String.class;
+    public StringSchema() {
+        Predicate<Object> p = (s) -> !Objects.equals(s, "") && s instanceof String;
         super.addPredicate(super.getRequiredCheckTitle(), p);
+    }
+
+    public StringSchema required() {
+        required = true;
         return this;
     }
 

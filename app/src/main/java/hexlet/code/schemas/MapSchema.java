@@ -5,9 +5,13 @@ import java.util.function.Predicate;
 
 public final class MapSchema extends BaseSchema {
 
-    public MapSchema required() {
+    public MapSchema() {
         Predicate<Object> p = (s) -> s instanceof Map;
         super.addPredicate(super.getRequiredCheckTitle(), p);
+    }
+
+    public MapSchema required() {
+        required = true;
         return this;
     }
 
